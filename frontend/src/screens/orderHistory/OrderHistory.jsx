@@ -42,7 +42,7 @@ function OrderHistory() {
   };
 
   const removeOrder = (orderId) => {
-    if (window.confirm("Are you sure you want to delete?")) {
+    if (window.confirm("Are you sure you want to delete this order.?")) {
       dispatch(deleteOrder(orderId));
     }
   };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import InlineErrors from "../components/InlineErrors";
 import Message from "../components/ErrorMessage";
 import { resetInfo, updatePassword } from "../redux/actions/ResetPassword";
@@ -21,6 +21,7 @@ function ResetPassword() {
   const [errors, setErrors] = useState({});
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const resetPasswordDetails = useSelector((state) => state.resetPassword);
   const { loading, error } = resetPasswordDetails;
 
@@ -45,6 +46,7 @@ function ResetPassword() {
       dispatch(updatePassword(token, password));
       setPassword("");
       setConfirmPassword("");
+      navigate('/')
     }
   };
 

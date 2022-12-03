@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Loader from "../Loader";
+import Spinner from "../Spinner";
 import ErrorMessage from "../ErrorMessage";
 import moment from "moment";
 import { orderDeliver, orderDetail } from "../../redux/actions/orderActions";
@@ -67,8 +68,6 @@ const OrderDetailsMain = ({ orderId }) => {
             <header className="card-header bg-dark">
               <div className="row align-items-center">
                 <div className="">
-                  {/* <i className="fa fa-calendar text-white"></i> */}
-
                   <span>
                     <i className="far fa-calendar-alt"></i>{" "}
                     <b className="text-white">
@@ -239,7 +238,7 @@ const OrderDetailsMain = ({ orderId }) => {
                         </button>
                       ) : (
                         <>
-                          {deliverLoding && <Loader />}
+                          {deliverLoding && <Spinner />}
                           <button
                             className="btn btn-dark mt-3"
                             onClick={deliverOrder}

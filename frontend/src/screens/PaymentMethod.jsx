@@ -27,9 +27,7 @@ function PaymentMethod() {
         onSubmit={handleSubmit}
         style={{ width: "40rem", margin: "0 auto" }}
       >
-        <div style={{ fontSize: "30px", textAlign: "center" }}>
-          Payment method
-        </div>
+        <div style={{ fontSize: "30px" }}>Payment method</div>
 
         <div className="form-check">
           <label className="form-check-label" htmlFor="Paypal">

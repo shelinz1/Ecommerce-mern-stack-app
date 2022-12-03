@@ -91,13 +91,11 @@ orderRouter.put(
   protect,
   asyncHandler(async (req, res) => {
     const { id, status, update_time, email_address } = req.body;
-    const { name, email } = req.user;
 
     const order = await Order.findById(req.params.id).populate(
       "user",
       "name email"
     );
-    
 
     if (order) {
       order.isPaid = true;
@@ -177,14 +175,15 @@ orderRouter.put(
       "user",
       "name email"
     );
-    
 
     if (order) {
       order.isDelivered = true;
       order.timeOfDelivery = Date.now();
 
       const updatedOrder = await order.save();
-      res.status(200).send({ message: "order is delivered", order: updatedOrder });
+      res
+        .status(200)
+        .send({ message: "order is delivered", order: updatedOrder });
 
       //send delivery mesage back
 
