@@ -53,6 +53,13 @@ function PlaceOrderScreen() {
     navigate("/");
   };
 
+  useEffect(() => {
+    if (success) {
+      navigate(`/order/${order._id}`);
+      dispatch({ type: CREATE_ORDER_RESET });
+    }
+  }, [success, dispatch, navigate, order]);
+
   const placeOrderHandler = (e) => {
     e.preventDefault();
     dispatch(
@@ -67,13 +74,6 @@ function PlaceOrderScreen() {
       })
     );
   };
-
-  useEffect(() => {
-    if (success) {
-      navigate(`/order/${order._id}`);
-      dispatch({ type: CREATE_ORDER_RESET });
-    }
-  }, [success, dispatch, navigate, order]);
 
   return (
     <div>

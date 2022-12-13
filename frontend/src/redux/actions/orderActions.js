@@ -40,9 +40,9 @@ export const createOrder = (order) => async (dispatch, getState) => {
       },
     };
 
-    const response = await axios.post("/api/orders", order, config);
+    const { data } = await axios.post("/api/orders", order, config);
 
-    dispatch({ type: CREATE_ORDER_SUCCESS, payload: response.data.order });
+    dispatch({ type: CREATE_ORDER_SUCCESS, payload: data.order });
     dispatch({ type: CLEAR_CART_ITEM });
     localStorage.removeItem("cartItems");
   } catch (error) {
