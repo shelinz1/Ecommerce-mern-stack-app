@@ -31,7 +31,7 @@ forgotpasswordRouter.post("/forgotpassword", (req, res) => {
             from: `Shoppyme 🛒 <${process.env.EMAIL_ADDRESS}>`,
             to: `${user.email}`,
             subject:
-              "Password reset 🏪.\n\n" +
+              "Password reset 🗝.\n\n" +
               "Click the link or copy and paste it in your browser to Reset your password.",
             text:
               "You have to complete this process within one hour of receiving it 💪:\n\n" +
