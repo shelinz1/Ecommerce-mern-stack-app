@@ -105,7 +105,7 @@ export const productDetailsReview =
             : error.message,
       });
     }
- };
+  };
 
 //ADMIN
 export const productsList =
@@ -198,7 +198,7 @@ export const productAdd =
         { name, price, countInStock, category, description, image },
         config
       );
-      console.log(data);
+
       dispatch({
         type: ADMIN_PRODUCT_CREATE_SUCCESS,
         payload: data,
