@@ -1,6 +1,5 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const path = require("path");
 
 const connectDb = require("./config/database");
 
@@ -29,21 +28,9 @@ app.use("/api/products", productRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/password", forgotpasswordRouter, resetPasswordRouter);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/build")));
-
-  app.get("*", (req, res) =>
-    res.sendFile(
-      path.resolve(__dirname, "../", "frontend", "build", "index.html")
-    )
-  );
-} else {
-  app.get("/", (req, res) => {
-    res.send(
-      `<div style="text-align:center;color:yellow"><h5>server running- please set to production</h5></div>`
-    );
-  });
-}
+app.get("/", (req, res) => {
+  res.send(`<div style="text-align:center"><h5>server running</h5></div>`);
+});
 
 app.use(errorHandler);
-app.listen(process.env.PORT || 5000, console.log(`server running`));
+app.listen(process.env.PORT, console.log(`server running`));
