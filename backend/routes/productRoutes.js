@@ -5,7 +5,7 @@ const { protect, admin } = require("../middleware/authMiddleware.js");
 
 const productRouter = express.Router();
 
-// ADMIN GET ALL PRODUCT
+// ADMIN GET ALL PRODUCTS
 productRouter.get(
   "/all/products",
   protect,
