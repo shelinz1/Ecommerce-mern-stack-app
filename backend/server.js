@@ -11,6 +11,7 @@ const orderRouter = require("./routes/orderRoutes.js");
 const forgotpasswordRouter = require("./routes/forgotpassword.js");
 const resetPasswordRouter = require("./routes/resetPassword.js");
 
+// for env files
 dotenv.config();
 const app = express();
 
